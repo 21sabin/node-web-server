@@ -32,9 +32,9 @@ app.use((req,res,next)=>{
 next();
 });
 
-app.use((req,res,next)=>{
-  res.render("maintenance.hbs")
-})
+// app.use((req,res,next)=>{
+//   res.render("maintenance.hbs")
+// })
 
 app.get('/',(req,res)=>{
     // res.send({
@@ -44,6 +44,10 @@ app.get('/',(req,res)=>{
       page:"welcome to node js",
     //  year:new Date().getFullYear()
     })
+})
+
+app.get('/project',(req,res)=>{
+  res.render("project.hbs")
 })
 
 app.get("/about",(req,res)=>{
