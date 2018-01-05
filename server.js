@@ -1,5 +1,8 @@
 
 const express=require("express");
+
+//process.env contains all our environment variable
+const port=process.env.PORT || 3000
 const fs=require("fs");
 
 var app=express();
@@ -14,7 +17,7 @@ return new Date().getFullYear();
 //specifiyins that we are using hbs as view engine
 
 app.set("view engine","hbs");
-
+//specifying folder structure for file requested
 app.use(express.static(__dirname + "/public"));
 
 app.use((req,res,next)=>{
@@ -50,6 +53,6 @@ app.get("/about",(req,res)=>{
    });
 });
 
-app.listen(3000,()=>{
-    console.log("server started at port 3000 ")
+app.listen(port,()=>{
+    console.log(`server started at port 3000 ${port}`)
 })
